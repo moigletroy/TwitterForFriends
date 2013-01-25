@@ -1,4 +1,7 @@
 class FriendsController < ApplicationController
+
+  before_filter :authenticate_friend!
+
   # GET /friends
   # GET /friends.json
   def index
@@ -41,7 +44,6 @@ class FriendsController < ApplicationController
   # POST /friends.json
   def create
     @friend = Friend.new(params[:friend])
-
     respond_to do |format|
       if @friend.save
         format.html { redirect_to @friend, notice: 'Friend was successfully created.' }

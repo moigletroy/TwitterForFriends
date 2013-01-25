@@ -1,4 +1,10 @@
 TwitterForFriends::Application.routes.draw do
+  devise_for :friends
+
+  devise_scope :friend do
+    get '/friends/sign_out', :to => "devise/sessions#destroy"
+  end
+
   resources :tweets
 
 

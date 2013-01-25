@@ -1,4 +1,7 @@
 class TweetsController < ApplicationController
+
+  before_filter :authenticate_friend!
+
   # GET /tweets
   # GET /tweets.json
   def index
@@ -41,7 +44,7 @@ class TweetsController < ApplicationController
   # POST /tweets.json
   def create
     @tweet = Tweet.new(params[:tweet])
-
+    @tweet.friend = current_friend
     respond_to do |format|
       if @tweet.save
         format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
