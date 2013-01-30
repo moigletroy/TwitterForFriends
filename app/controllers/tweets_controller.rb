@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.order("created_at desc")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -47,7 +47,7 @@ class TweetsController < ApplicationController
     @tweet.friend = current_friend
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
+        format.html { redirect_to tweets_url, notice: 'Tweet was successfully created.' }
         format.json { render json: @tweet, status: :created, location: @tweet }
       else
         format.html { render action: "new" }

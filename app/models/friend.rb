@@ -9,4 +9,9 @@ class Friend < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :name
   has_many :tweets
+
+  def admin?
+  	is_admin? || "moira.hicks@gmail.com" == self.email || "darren.hicks@gmail.com" == self.email
+  end
+  
 end

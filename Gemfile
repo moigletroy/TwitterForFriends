@@ -11,6 +11,7 @@ end
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'puma'
 end
 
 # Gems used only for assets and not required
@@ -28,6 +29,8 @@ end
 gem 'jquery-rails'
 
 gem 'devise'
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

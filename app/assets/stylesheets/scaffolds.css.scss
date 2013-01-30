@@ -67,3 +67,33 @@ div {
     list-style: square;
   }
 }
+
+.tweet {
+  width: 500px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid gray;
+}
+
+.when {
+  float:right;
+}
+
+.avatar {
+  
+}
+
+.friend {
+  position: relative;
+  left: 60px;  
+  font-weight: bold;
+}
+
+.message {
+  position: relative;
+  left: 60px;  
+}
+
+.admin {
+  position: relative;
+  left: 60px;
+}
