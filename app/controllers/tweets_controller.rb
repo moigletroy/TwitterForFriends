@@ -5,9 +5,8 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = Tweet.order("created_at desc")
-
-    respond_to do |format|
+    @tweets = Tweet.order("created_at desc").page(params[:page]).per(15)
+     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tweets }
     end

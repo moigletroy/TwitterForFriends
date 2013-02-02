@@ -1,4 +1,6 @@
 <h1>All tweets</h1>
+<%= paginate @tweets %>
+<%= link_to 'New Tweets', new_tweet_path %>
 
 <% @tweets.each do |tweet| %>
 <div class="tweet">
