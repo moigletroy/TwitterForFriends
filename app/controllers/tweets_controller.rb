@@ -6,6 +6,7 @@ class TweetsController < ApplicationController
   # GET /tweets.json
   def index
     @tweets = Tweet.order("created_at desc").page(params[:page]).per(15)
+    @tweet = Tweet.new
      respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tweets }
@@ -43,6 +44,10 @@ class TweetsController < ApplicationController
   # POST /tweets.json
   def create
     @tweet = Tweet.new(params[:tweet])
+    if @tweet.message.blank?
+      redirect_to tweets_url, :notice => "Please enter a message" 
+      return
+    end
     @tweet.friend = current_friend
     respond_to do |format|
       if @tweet.save
