@@ -1,6 +1,6 @@
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: #265373;
+  color: #fff;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -68,14 +68,9 @@ div {
   }
 }
 
-.tweet {
-  width: 500px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid gray;
-}
-
 .when {
   float:right;
+  margin-right: 10px;
 }
 
 .avatar {
@@ -84,7 +79,7 @@ div {
 
 .friend {
   position: relative;
-  left: 60px;  
+  left: 10px;  
   font-weight: bold;
 }
 
@@ -93,7 +88,32 @@ div {
   left: 60px;  
 }
 
+
+@mixin rounded-corners($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;                                                                                                                 
+  border-radius: $radius;
+}
+
 .admin {
   position: relative;
   left: 60px;
+}
+
+.tweet_this {
+  width: 600px;
+  padding: 10px;
+  background-color: #4491c1;
+  margin-bottom: 10px;
+  @include rounded-corners(5px);
+}
+
+.tweet {
+  width: 600px;
+  background-image: -webkit-linear-gradient(top, #346C9D 35%, #446CCD 77%);
+  background-image: -moz-linear-gradient(top, #346C9D 35%, #446CCD 77%);
+  background-image: linear-gradient(top, #346C9D 35%, #446CCD 77%);
+  padding: 10 px;
+  margin-bottom: 10px;
+  @include rounded-corners(5px);
 }

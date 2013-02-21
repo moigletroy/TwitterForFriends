@@ -1,0 +1,13 @@
+<%= div_for tweet, data: { id: tweet.id } do %>
+    <div class="when"><%= time_ago_in_words( tweet.created_at ) %> ago</div>
+    <div class="friend"><%= tweet.friend.try(:name) %></div>
+    <div class="message"><%= tweet.message %></div>
+    <% if current_friend && current_friend.admin? %>
+    <div class="admin">
+      <%= link_to 'Show', tweet %>
+      <%= link_to 'Edit', edit_tweet_path(tweet) %>
+      <%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+    <% end %>
+  </tr>
+<% end %>

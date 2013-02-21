@@ -5,12 +5,20 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = Tweet.order("created_at desc").page(params[:page]).per(15)
+    @tweets = Tweet.order("created_at desc").page(params[:page]).per(45)
     @tweet = Tweet.new
      respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tweets }
+      format.js { render :layout => false} # index.js.erb
     end
+  end
+
+  def stream
+    @tweets = Tweet.order("created_at desc").where('id > ?', params[:after].to_i) if params[:after]
+     respond_to do |format|
+       format.js { render :layout => false} # stream.js.erb
+     end
   end
 
   # GET /tweets/1

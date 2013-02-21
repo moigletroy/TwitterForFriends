@@ -5,7 +5,11 @@ TwitterForFriends::Application.routes.draw do
     get '/friends/sign_out', :to => "devise/sessions#destroy"
   end
 
-  resources :tweets
+  resources :tweets do
+    collection do
+      get 'stream', :defaults => { :format => 'js' }
+    end
+  end
 
 
   resources :friends

@@ -11,11 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :message %><br />
-    <%= f.text_field :message %>
-  </div>
-  <div class="actions">
+  <div class="tweet_this">
+    <%= f.text_field :message, style: "width:450px;", placeholder: "What are you doing..." %>
     <%= f.submit %>
   </div>
 <% end %>
