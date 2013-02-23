@@ -10,6 +10,7 @@
   
   addTweets: (tweets) ->
     if tweets.length > 0
+      EvalSound('messageReceivedSound')
       $('#tweets').prepend($(tweets))
     @poll()
   
