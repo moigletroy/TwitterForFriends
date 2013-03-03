@@ -11,8 +11,13 @@ TwitterForFriends::Application.routes.draw do
     end
   end
 
+  resources :friends do
+    collection do
+      get 'online_status', :defaults => { :format => 'js' }
+    end
+  end
 
-  resources :friends
+  root :to => 'high_voltage/pages#show', :id => 'home'
 
 
   # The priority is based upon order of creation:

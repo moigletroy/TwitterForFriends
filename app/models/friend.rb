@@ -14,4 +14,8 @@ class Friend < ActiveRecord::Base
   	is_admin? || "moira.hicks@gmail.com" == self.email || "darren.hicks@gmail.com" == self.email
   end
   
+  def self.online_friends
+    Friend.order("name").where('updated_at > ?', 12.seconds.ago)
+  end
+
 end

@@ -16,10 +16,13 @@ function EvalSound(soundobj) {
 }
 </script>
 
-<header>
-	<%= render 'devise/menu/login_items' %>
-</header>
-<%= yield %>
-
+<%= render 'layouts/navigation' %>
+<div class="container">
+	<div class="row-fluid">
+		<div class="span12">
+			<%= yield %>
+		</div>
+	</div>
+</div>
 </body>
 </html>

@@ -1,8 +1,9 @@
 <h1>Listing friends </h1>
 
-<table>
+<table cellpadding="5" cellspacing="5">
   <tr>
     <th>Name</th>
+    <th>Last Activity</th>
     <% if current_friend.admin? %>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
 <% @friends.each do |friend| %>
   <tr>
     <td><%= friend.name %></td>
+    <td><%= time_ago_in_words(friend.updated_at) %> ago</td>
     <% if current_friend.admin? %>
     <td><%= link_to 'Show', friend %></td>
     <td><%= link_to 'Edit', edit_friend_path(friend) %></td>

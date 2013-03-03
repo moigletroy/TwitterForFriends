@@ -13,6 +13,15 @@ class FriendsController < ApplicationController
     end
   end
 
+  def online_status
+    @friends = Friend.online_friends
+    current_friend.updated_at = Time.now
+    current_friend.save
+     respond_to do |format|
+       format.js { render :layout => false} # online_status.js.erb
+     end
+  end
+
   # GET /friends/1
   # GET /friends/1.json
   def show

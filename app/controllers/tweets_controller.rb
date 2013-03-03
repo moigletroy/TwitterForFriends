@@ -7,6 +7,7 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.order("created_at desc").page(params[:page]).per(45)
     @tweet = Tweet.new
+    @friends = Friend.online_friends
      respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tweets }
@@ -14,7 +15,7 @@ class TweetsController < ApplicationController
     end
   end
 
-  def stream
+  def stream    
     @tweets = Tweet.order("created_at desc").where('id > ?', params[:after].to_i) if params[:after]
      respond_to do |format|
        format.js { render :layout => false} # stream.js.erb

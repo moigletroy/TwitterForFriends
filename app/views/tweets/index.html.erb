@@ -1,12 +1,20 @@
-<h1>Twitter for Friends</h1>
-<% if current_friend && current_friend.admin? %>
-  <%= paginate @tweets %>
-<% end %>
-<%= render 'form' %>
+<div class="span6">
+	<h1>Tweets</h1>
+	<% if current_friend && current_friend.admin? %>
+	  <%= paginate @tweets %>
+	<% end %>
+	<%= render 'form' %>
 
-<%= content_tag :div, id: "tweets", data: {url: stream_tweets_url} do %>
-  <%= render @tweets %>
-<% end %>
-<br />
+	<%= content_tag :div, id: "tweets", data: {url: stream_tweets_url} do %>
+	  <%= render @tweets %>
+	<% end %>
+	<br />
+</div>
 
-<%= link_to 'New Tweet', new_tweet_path %>
+<div class="span6">
+	<h1>Online Friends</h1>
+	<%= content_tag :div, id: "friends", data: {url: online_status_friends_url} do %>
+		<%= render @friends %>
+	<% end %>
+
+</div>

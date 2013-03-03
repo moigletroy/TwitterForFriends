@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 @TweetsPoller =
   poll: ->
-    setTimeout @request, 5000
+    setTimeout @request, 8000
   
   request: ->
     $.get($('#tweets').data('url'), after: $('.tweet').first().data('id'))
