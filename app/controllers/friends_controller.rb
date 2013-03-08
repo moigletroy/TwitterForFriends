@@ -5,8 +5,7 @@ class FriendsController < ApplicationController
   # GET /friends
   # GET /friends.json
   def index
-    @friends = Friend.all
-
+    @friends = Friend.order("updated_at desc")
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @friends }

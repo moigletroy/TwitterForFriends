@@ -55,3 +55,4 @@ gem 'font-awesome-sass-rails'
 
 # To use debugger
 # gem 'debugger'
+gem 'linkser' 
