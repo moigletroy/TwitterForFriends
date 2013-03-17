@@ -68,26 +68,6 @@ div {
   }
 }
 
-.when {
-  float:right;
-  margin-right: 10px;
-}
-
-.avatar {
-  
-}
-
-.friend {
-  position: relative;
-  left: 10px;  
-  font-weight: bold;
-}
-
-.message {
-  position: relative;
-  left: 60px;  
-  overflow: hidden;
-}
 
 
 @mixin rounded-corners($radius) {
@@ -96,10 +76,6 @@ div {
   border-radius: $radius;
 }
 
-.admin {
-  position: relative;
-  left: 60px;
-}
 
 .tweet_this {
   padding: 10px;
@@ -113,6 +89,40 @@ div {
   background-image: -moz-linear-gradient(top, #346C9D 35%, #446CCD 77%);
   background-image: linear-gradient(top, #346C9D 35%, #446CCD 77%);
   padding: 10 px;
+  min-height: 80px;
   margin-bottom: 10px;
   @include rounded-corners(5px);
+}
+
+.when {
+  float:right;
+  margin-right: 10px;
+}
+
+.avatar {
+  height: 60px;  
+  width: 60px;
+  margin: 5px;
+  float: left;
+}
+
+.avatar img {
+  width: 50px;
+  height: 50px;
+  @include rounded-corners(5px);
+
+}
+
+.friend {
+  position: relative;
+  left: 10px;  
+  font-weight: bold;
+}
+
+.message {
+  position: relative;
+  overflow: hidden;
+}
+
+.admin {
 }

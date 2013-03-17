@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130129230907) do
+ActiveRecord::Schema.define(:version => 20130317162613) do
 
   create_table "friends", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130129230907) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.boolean  "is_admin"
+    t.string   "avatar"
   end
 
   add_index "friends", ["email"], :name => "index_friends_on_email", :unique => true

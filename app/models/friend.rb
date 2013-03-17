@@ -7,8 +7,10 @@ class Friend < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :name
+  attr_accessible :name, :avatar
   has_many :tweets
+
+  mount_uploader :avatar, AvatarUploader
 
   def admin?
   	is_admin? || "moira.hicks@gmail.com" == self.email || "darren.hicks@gmail.com" == self.email
