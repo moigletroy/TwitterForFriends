@@ -1,5 +1,6 @@
 class AddAvatarToFriends < ActiveRecord::Migration
-  def change
-    add_column :friends, :avatar, :string
+  def change 
+  	# Please work on Heroku
+    add_column :friends, :avatar, :string 
   end
 end
