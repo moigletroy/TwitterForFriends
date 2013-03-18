@@ -1,0 +1,8 @@
+<h1>Listing photos</h1>
+
+<div class="row-fluid">
+<% @photos.each do |photo| %>
+    <%= render photo, size: :thumb %>
+<% end %>
+</div>
+<%= link_to 'New Photo', new_photo_path %>

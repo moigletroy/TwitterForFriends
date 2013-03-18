@@ -3,6 +3,6 @@
   <i class="icon-circle" style="color: #0f0;"></i>&nbsp;<b><%= friend.name %></b>
   <% last_tweet_time = (friend.tweets.order("created_at desc").limit(1).first.created_at) rescue nil %>
   <% if last_tweet_time %>
-  	&nbsp;&nbsp;<span style="font-size: .8em; font-weight: normal;">last tweeted <%= time_ago_in_words(last_tweet_time) %> ago...</span>
+  	&nbsp;&nbsp;<div style="font-size: .8em; font-weight: normal;">last tweeted <%= time_ago_in_words(last_tweet_time) %> ago...</div>
   <% end %>
 <% end %>

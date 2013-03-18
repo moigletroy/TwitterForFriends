@@ -1,0 +1,4 @@
+Uploaded a photo <b><%= photo.title %></b>
+<%= link_to photo do %>
+	    <span class="tweet-photo"><%= image_tag photo.image_url(:thumb) if photo.image_url %></span>
+<% end %>

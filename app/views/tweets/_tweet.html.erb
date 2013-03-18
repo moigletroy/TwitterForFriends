@@ -1,8 +1,12 @@
 <%= div_for tweet, data: { id: tweet.id } do %>
     <div class="when"><%= time_ago_in_words( tweet.created_at ) %> ago</div>
-    <div class="friend"><%= tweet.friend.try(:name) %></div>
+    <div class="name"><%= tweet.friend.try(:name) %></div>
     <div class="avatar"><%= image_tag tweet.friend.avatar_url(:thumb) if tweet.friend.avatar_url %></div>
-    <div class="message"><%= tweet.message %></div>
+    <% if tweet.photo %>
+      <%= render "tweet_photo", photo: tweet.photo %>
+    <% else %>
+      <div class="message"><%= tweet.message %></div>
+    <% end %>
     <% if current_friend && current_friend.admin? %>
     <div class="admin">
       <%= link_to 'Show', tweet %>

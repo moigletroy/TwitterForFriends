@@ -1,4 +1,7 @@
 TwitterForFriends::Application.routes.draw do
+  resources :photos
+
+
   devise_for :friends
 
   devise_scope :friend do

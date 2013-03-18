@@ -9,7 +9,8 @@ class Friend < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :name, :avatar
   has_many :tweets
-
+  has_many :photos
+  
   mount_uploader :avatar, AvatarUploader
 
   def admin?

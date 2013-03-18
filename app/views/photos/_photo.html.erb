@@ -1,0 +1,25 @@
+<div class="tweet span4">
+  	<%= render photo.friend %>
+
+  	<% if size == :thumb %>
+  		<div class="photo" style="margin-left: 60px;">
+  	<% else %>
+  		<div class="photo" style="margin-left: 30px;">
+  	<% end %>
+	  <div class="photo-title"><%= photo.title %></div>
+	  <div class="photo-image">
+  	  	<% if size == :thumb %>
+		  	<%= link_to photo do %>
+			  	<%= image_tag photo.image_url(size) if photo.image_url %>
+	  		<% end %>
+	  	<% else %>
+		  	<%= link_to photo.image_url(:large) do %>
+			  	<%= image_tag photo.image_url(size) if photo.image_url %>
+		  	<% end %>
+	  	<% end %>
+	  </div>
+	  <div class="photo-description"><%= photo.description %></div>
+	  <div class="when">Uploaded <%= time_ago_in_words(photo.created_at)%> ago</div>
+	</div>  
+</div>
+

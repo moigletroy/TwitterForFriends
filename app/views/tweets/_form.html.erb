@@ -14,5 +14,6 @@
   <div class="tweet_this">
     <%= f.text_field :message, style: "width:95%;", placeholder: "Compose message", autofocus: true, autocomplete: "off" %>
     <%= f.submit %>
+    <div style="float:right;"><%= link_to "Add Photo", new_photo_path %></div>
   </div>
 <% end %>

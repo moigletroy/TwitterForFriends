@@ -2,6 +2,7 @@
 
 <table cellpadding="5" cellspacing="5">
   <tr>
+    <th></th>
     <th>Name</th>
     <th>Last Activity</th>
     <% if current_friend.admin? %>
@@ -13,6 +14,7 @@
 
 <% @friends.each do |friend| %>
   <tr>
+    <td><div class="avatar"><%= image_tag friend.avatar_url(:thumb) if friend.avatar_url %></div></td>
     <td><%= friend.name %></td>
     <td><%= time_ago_in_words(friend.updated_at) %> ago</td>
     <% if current_friend.admin? %>
