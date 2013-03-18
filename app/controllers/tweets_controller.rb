@@ -8,6 +8,7 @@ class TweetsController < ApplicationController
     @tweets = Tweet.order("created_at desc").page(params[:page]).per(45)
     @tweet = Tweet.new
     @friends = Friend.online_friends
+    @photos = Photo.recent_photos
      respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tweets }

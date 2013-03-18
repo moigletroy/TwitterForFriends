@@ -9,6 +9,10 @@ class Photo < ActiveRecord::Base
 
   after_commit :create_tweet
 
+  def self.recent_photos
+    Photo.order("created_at desc").limit(6)
+  end
+
 private
   def create_tweet
       tweet = Tweet.new

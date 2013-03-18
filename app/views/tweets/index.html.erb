@@ -12,6 +12,19 @@
 </div>
 
 <div class="span6">
+	<h1>Recent Photos</h1>
+	<div class="row-fluid">
+		<%= div_for @photos do|photo| %>
+				<%= link_to photo do %>
+					<div class="photo-recent span3">
+						<%= image_tag(photo.image_url(:thumb), alt: photo.title) if photo.image_url %>
+						<div class="avatar">
+							<%= image_tag photo.friend.avatar_url(:thumb) if photo.friend.avatar_url %>
+						</div>
+					</div>
+				<% end %>
+		<% end %>
+	</div>
 	<h1>Online Friends</h1>
 	<%= content_tag :div, id: "friends", data: {url: online_status_friends_url} do %>
 		<%= render @friends %>

@@ -76,6 +76,14 @@ div {
   border-radius: $radius;
 }
 
+@mixin shadow($color: #333333) {
+  -moz-box-shadow: 0px 1px 2px $color;
+  -webkit-box-shadow: 0px 1px 2px $color;
+  box-shadow: 0px 1px 2px $color;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color');
+}
+ 
 
 .tweet_this {
   padding: 10px;
@@ -123,8 +131,8 @@ div {
   width: 50px;
   height: 50px;
   @include rounded-corners(5px);
-
 }
+
 .name {
   position: relative;
   left: 10px;  
@@ -154,4 +162,30 @@ div {
 .photo-description {
   font-style: italic;
   margin:10px;
+}
+
+.photo-image {
+  width: 90%;
+}
+
+.photo-recent {
+  position: relative;
+  margin: 10px;
+  max-height: 120px;
+  min-width: 150px;
+}
+
+.photo-recent img {
+  position:relative;
+  top:0px;
+  left:0px;
+  @include rounded-corners(5px);
+}
+
+.photo-recent .avatar {
+  position:relative; 
+  left: -10px; 
+  top: -45px; 
+  float:none; 
+  z-index:1;
 }
