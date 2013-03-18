@@ -47,10 +47,6 @@ class PhotosController < ApplicationController
     @photo.friend = current_friend
     respond_to do |format|
       if @photo.save
-        tweet = Tweet.new
-        tweet.friend = current_friend
-        tweet.photo = @photo
-        tweet.save
         format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
         format.json { render json: @photo, status: :created, location: @photo }
       else
@@ -87,4 +83,5 @@ class PhotosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

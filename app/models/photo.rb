@@ -7,4 +7,14 @@ class Photo < ActiveRecord::Base
 
   has_many :tweets
 
+  after_commit :create_tweet
+
+private
+  def create_tweet
+      tweet = Tweet.new
+      tweet.friend = self.friend
+      tweet.photo = self
+      tweet.save
+  end
+
 end
