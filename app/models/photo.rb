@@ -10,7 +10,7 @@ class Photo < ActiveRecord::Base
   after_commit :create_tweet
 
   def self.recent_photos
-    Photo.order("created_at desc").limit(6)
+    Photo.order("created_at desc").limit(8)
   end
 
 private

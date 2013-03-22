@@ -171,8 +171,8 @@ div {
 .photo-recent {
   position: relative;
   margin: 10px;
-  max-height: 120px;
-  min-width: 150px;
+  height: 130px;
+  width: 130px;
 }
 
 .photo-recent img {
@@ -180,6 +180,12 @@ div {
   top:0px;
   left:0px;
   @include rounded-corners(5px);
+}
+
+.photo-thumb {
+  height: 120px;
+  width: 120px;  
+
 }
 
 .photo-recent .avatar {
