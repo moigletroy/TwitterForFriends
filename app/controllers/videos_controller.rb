@@ -43,8 +43,7 @@ class VideosController < ApplicationController
   # POST /videos
   # POST /videos.json
   def create
-    @video = Video.from_url(params[:video][:data_url])
-    @video.friend = current_friend
+    @video = Video.from_url(params[:video][:data_url], current_friend)
     
     respond_to do |format|
       if @video.save

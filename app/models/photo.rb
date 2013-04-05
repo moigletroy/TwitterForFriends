@@ -7,7 +7,7 @@ class Photo < ActiveRecord::Base
 
   has_many :tweets
 
-  after_commit :create_tweet
+  after_create :create_tweet
 
   def self.recent_photos
     Photo.order("created_at desc").limit(8)

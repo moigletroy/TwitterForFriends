@@ -1,7 +1,7 @@
 class Video < ActiveRecord::Base
   attr_accessible :data_url, :description, :image, :title
 
-  after_commit :create_tweet
+  after_create :create_tweet
 
   belongs_to :friend
 
@@ -11,7 +11,7 @@ class Video < ActiveRecord::Base
     Video.order("created_at desc").limit(8)
   end
 
-  def self.from_url(url)
+  def self.from_url(url, friend = nil)
 
       # Use Linkser for YouTube and Vimeo
       y = Linkser.parse url
@@ -37,6 +37,7 @@ class Video < ActiveRecord::Base
         v.image = y.images.first.url rescue nil
         v.image ||= "https://i1.ytimg.com/vi/#{source_id}/default.jpg"
         v.data_url = y.resource.url rescue ""
+        v.friend = friend
         v.save
       end
       v
