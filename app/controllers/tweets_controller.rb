@@ -9,6 +9,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
     @friends = Friend.online_friends
     @photos = Photo.recent_photos
+    @videos = Video.recent_videos
      respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tweets }

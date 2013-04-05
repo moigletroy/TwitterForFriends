@@ -11,10 +11,17 @@
 	<br />
 </div>
 
+	<div>
+		<h1>Online Friends</h1>
+		<%= content_tag :div, id: "friends", data: {url: online_status_friends_url} do %>
+			<%= render @friends %>
+		<% end %>
+	</div>
+
 <div class="span6">
 	<h1>Recent Photos</h1>
 	<div class="row-fluid">
-		<%= div_for @photos do|photo| %>
+		<%= div_for @photos do |photo| %>
 				<%= link_to photo do %>
 					<div class="photo-recent span3">
 						<%= image_tag(photo.image_url(:thumb), alt: photo.title, class: "photo-thumb") if photo.image_url %>
@@ -25,10 +32,19 @@
 				<% end %>
 		<% end %>
 	</div>
-	<div>
-		<h1>Online Friends</h1>
-		<%= content_tag :div, id: "friends", data: {url: online_status_friends_url} do %>
-			<%= render @friends %>
+
+	<h1>Recent Videos</h1>
+	<div class="row-fluid">
+		<%= div_for @videos do |video| %>
+				<%= link_to video do %>
+					<div class="photo-recent span3">
+						<%= image_tag(video.image, alt: video.title, class: "photo-thumb") if video.image %>
+						<div class="avatar">
+							<%= image_tag video.friend.avatar_url(:thumb) if video.friend.avatar_url %>
+						</div>
+					</div>
+				<% end %>
 		<% end %>
 	</div>
+
 </div>

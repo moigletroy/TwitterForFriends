@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130318020025) do
+ActiveRecord::Schema.define(:version => 20130401204823) do
 
   create_table "friends", :force => true do |t|
     t.string   "name"
@@ -49,8 +49,20 @@ ActiveRecord::Schema.define(:version => 20130318020025) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "photo_id"
+    t.integer  "video_id"
   end
 
   add_index "tweets", ["friend_id"], :name => "index_tweets_on_friend_id"
+
+  create_table "videos", :force => true do |t|
+    t.string   "title"
+    t.string   "image"
+    t.string   "data_url"
+    t.string   "source"
+    t.string   "source_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

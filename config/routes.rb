@@ -1,4 +1,7 @@
 TwitterForFriends::Application.routes.draw do
+  resources :videos
+
+
   resources :photos
 
 

@@ -1,0 +1,17 @@
+<div class="tweet span4">
+  	<%= render video.friend %>
+
+  	<% if size == :thumb %>
+  		<div class="photo" style="margin-left: 60px;">
+  	<% else %>
+  		<div class="photo" style="margin-left: 30px;">
+  	<% end %>
+	  <div class="photo-title"><%= video.title %></div>
+	  <div class="photo-image">
+	  	<%= link_to video do %>
+		  	<%= image_tag video.image if video.image %>
+	  	<% end %>
+	  </div>
+	  <div class="when">Uploaded <%= time_ago_in_words(video.created_at)%> ago</div>
+	</div>  
+</div>
