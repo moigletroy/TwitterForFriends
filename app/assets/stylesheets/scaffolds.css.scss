@@ -179,6 +179,7 @@ div {
   position:relative;
   top:0px;
   left:0px;
+  max-height:160px;
   @include rounded-corners(5px);
 }
 
@@ -195,3 +196,9 @@ div {
   float:none; 
   z-index:1;
 }
+
+.panel {
+  height:320px;
+  margin-bottom: 20px;
+}
+

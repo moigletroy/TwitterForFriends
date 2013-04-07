@@ -11,14 +11,14 @@
 	<br />
 </div>
 
-	<div>
-		<h1>Online Friends</h1>
-		<%= content_tag :div, id: "friends", data: {url: online_status_friends_url} do %>
-			<%= render @friends %>
-		<% end %>
-	</div>
-
 <div class="span6">
+		<h1>Online Friends</h1>
+		<div class="row-fluid">
+			<%= content_tag :div, id: "friends", data: {url: online_status_friends_url} do %>
+				<%= render @friends %>
+			<% end %>
+		</div>
+		
 	<h1>Recent Photos</h1>
 	<div class="row-fluid">
 		<%= div_for @photos do |photo| %>
