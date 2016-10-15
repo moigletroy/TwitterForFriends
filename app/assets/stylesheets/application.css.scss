@@ -18,18 +18,18 @@
 @import "bootswatch/cerulean/variables";
 
 // Then bootstrap itself
-@import "bootstrap";
+// @import "bootstrap";
 
-@import 'font-awesome';
+// @import 'font-awesome';
 
 // Bootstrap body padding for fixed navbar
 body { padding-top: 60px; }
 
 // Responsive styles go here in case you want them
-@import "bootstrap-responsive";
+// @import "bootstrap-responsive";
 
 // And finally bootswatch style itself
-@import "bootswatch/cerulean/bootswatch";
+// @import "bootswatch/cerulean/bootswatch";
 
 // Whatever application styles you have go last
 @import "scaffolds";

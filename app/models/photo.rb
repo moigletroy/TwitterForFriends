@@ -1,5 +1,18 @@
+# == Schema Information
+#
+# Table name: photos
+#
+#  id          :integer          not null, primary key
+#  title       :string
+#  image       :string
+#  description :string
+#  friend_id   :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 class Photo < ActiveRecord::Base
-  attr_accessible :image, :title, :description, :friend, :friend_id, :remote_image_url
+  #attr_accessible :image, :title, :description, :friend, :friend_id, :remote_image_url
 
   mount_uploader :image, ImageUploader
 

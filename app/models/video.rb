@@ -1,5 +1,20 @@
+# == Schema Information
+#
+# Table name: videos
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  image      :string
+#  data_url   :string
+#  source     :string
+#  source_id  :string
+#  friend_id  :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Video < ActiveRecord::Base
-  attr_accessible :data_url, :description, :image, :title
+  #attr_accessible :data_url, :description, :image, :title
 
   after_create :create_tweet
 

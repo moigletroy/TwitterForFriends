@@ -21,7 +21,8 @@
 		
 	<h1>Recent Photos</h1>
 	<div class="row-fluid">
-		<%= div_for @photos do |photo| %>
+		<% @photos.each do |photo| %>
+		<div>
 				<%= link_to photo do %>
 					<div class="photo-recent span3">
 						<%= image_tag(photo.image_url(:thumb), alt: photo.title, class: "photo-thumb") if photo.image_url %>
@@ -30,12 +31,14 @@
 						</div>
 					</div>
 				<% end %>
+		</div>
 		<% end %>
 	</div>
 
 	<h1>Recent Videos</h1>
 	<div class="row-fluid">
-		<%= div_for @videos do |video| %>
+		<%= @videos.each do |video| %>
+		<div>
 				<%= link_to video do %>
 					<div class="photo-recent span3">
 						<%= image_tag(video.image, alt: video.title, class: "photo-thumb") if video.image %>
@@ -44,6 +47,7 @@
 						</div>
 					</div>
 				<% end %>
+		</div>
 		<% end %>
 	</div>
 

@@ -54,7 +54,7 @@ class TweetsController < ApplicationController
   # POST /tweets
   # POST /tweets.json
   def create
-    @tweet = Tweet.new(params[:tweet])
+    @tweet = Tweet.new(tweet_params)
     if @tweet.message.blank?
       redirect_to tweets_url, :notice => "Please enter a message" 
       return
@@ -77,7 +77,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
 
     respond_to do |format|
-      if @tweet.update_attributes(params[:tweet])
+      if @tweet.update_attributes(tweet_params)
         format.html { redirect_to @tweet, notice: 'Tweet was successfully updated.' }
         format.json { head :no_content }
       else
@@ -98,4 +98,9 @@ class TweetsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def tweet_params 
+      params[:tweet].permit!
+    end
 end
